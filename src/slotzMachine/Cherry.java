@@ -8,7 +8,7 @@ public class Cherry extends Sprite{
 		cherry();
 	}
 	public void cherry() {
-		loadImage("res/cherry.png");
+		loadImage("./res/cherry.png");
 		getImageDimensions();
 	}
 

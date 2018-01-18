@@ -1,5 +1,7 @@
 package slotzMachine;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,11 +15,22 @@ public class Machine extends JPanel implements ActionListener{
 	private Bar3 bar3;
 	private Pull pull;
 	private Bell bell;
-	private Cherry cherry;
+	private Cherry cherry = new Cherry(200, 200);
 	private Jackpot jackpot;
 	private Seven seven;
+	private MachineImage mach = new MachineImage(0,0);
 	
 	public Machine() {
+		initMachine();
+	}
+	
+	private void initMachine() {
+		setFocusable(true);
+		setBackground(Color.BLACK);
+		
+		setPreferredSize(new Dimension(750, 500));
+		
+		
 	}
 	
 	public static int randNumGenerate(int num) {
@@ -29,11 +42,12 @@ public class Machine extends JPanel implements ActionListener{
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+		draw(g);
 		
 	}
 	
 	private void draw(Graphics g) {
-		g.drawImage(img, x, y, observer);
+		g.drawImage(mach.getImage(), mach.getX(), mach.getY(), this);
 	}
 
 	@Override
@@ -41,5 +55,7 @@ public class Machine extends JPanel implements ActionListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
+
 
 }
